@@ -102,7 +102,7 @@ class Nutation {
    * @see Meeus, Jean. Astronomical Algorithms. Richmond, Virg.: Willmann-Bell,
    *          2009. 143-147. Print.
    */
-  public static function nutation(AstroDate $date) {
+  public static function find(AstroDate $date) {
     // Time factor
     $t = ($date->copy()->toUTC()->jd - 2451545.0) / 36525;
 
@@ -193,6 +193,10 @@ class Nutation {
     return $y;
   }
 
+  /**
+   * Periodic nutation terms
+   * @return array
+   */
   protected static function NutationTerms() {
     return [
         //D, M, M', F, Ω, sin 0, sin 1, cos 0, cos 1
@@ -262,5 +266,4 @@ class Nutation {
     ];
   }
 
-  // // //
 }

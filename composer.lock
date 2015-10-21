@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "84d6d30406ac0fe375a3df26ef8c3b2e",
+    "hash": "f97eb73b8a2f3c8fa5f0e3ddebd7c297",
     "packages": [
         {
             "name": "marando/astrodate",
-            "version": "0.1-alpha",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marando/AstroDate.git",
-                "reference": "9df0487cf5fe95820745f48bc33f1172e2fbf856"
+                "reference": "30122c3a7827095233c88aa03e9ada752c1390d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marando/AstroDate/zipball/9df0487cf5fe95820745f48bc33f1172e2fbf856",
-                "reference": "9df0487cf5fe95820745f48bc33f1172e2fbf856",
+                "url": "https://api.github.com/repos/marando/AstroDate/zipball/30122c3a7827095233c88aa03e9ada752c1390d1",
+                "reference": "30122c3a7827095233c88aa03e9ada752c1390d1",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                 }
             ],
             "description": "A PHP Date/Time class with useful Astronomy related functionality ",
-            "time": "2015-10-21 07:13:38"
+            "time": "2015-10-21 19:24:46"
         },
         {
             "name": "marando/units",
@@ -1128,7 +1128,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "marando/astrodate": 15
+        "marando/astrodate": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

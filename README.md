@@ -1,7 +1,7 @@
 Meeus-Nutation
 ==============
 
-This package can be used to calculate values related to the Earth's nutations. The algorithms in this package are an implementation of those discussed in the book "Astronomical Algorithms" by J. Meeus.
+This package can be used to calculate values related to the Earth's nutations. Unless otherwise noted, all methods in this package are an implementation of those discussed in the book "Astronomical Algorithms" by J. Meeus.
 
 Installation 
 ------------

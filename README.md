@@ -45,9 +45,7 @@ Output:
 The result is returned as a `Time` instance
 
 #### Earth's Mean Obliquity of the Ecliptic
-There are two algorithms for finding Earth's mean obliquity (ε0). 
-
-The `meanObliquityIAU()` method uses coefficients provided from the IAU, and has an error of approximately 1" over a period of 2000 years, and about 10" over a period of 4000 years from the epoch J2000.
+There are two algorithms for finding Earth's mean obliquity (ε0). The `meanObliquityIAU()` method uses coefficients provided from the IAU, and has an error of approximately 1" over a period of 2000 years, and about 10" over a period of 4000 years from the epoch J2000. Below is a demonstration:
 ```php
 $date = AstroDate::parse('2015-Jul-10');
 echo Nutation::meanObliquityIAU($date);

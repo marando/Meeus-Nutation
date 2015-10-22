@@ -8,7 +8,7 @@
     "packages": [
         {
             "name": "marando/astrodate",
-            "version": "dev-dev",
+            "version": "^0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marando/AstroDate.git",

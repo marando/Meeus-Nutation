@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f97eb73b8a2f3c8fa5f0e3ddebd7c297",
+    "hash": "9ea16a298a7d242f5f741ee07b93212f",
     "packages": [
         {
             "name": "marando/astrodate",
-            "version": "dev-dev",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marando/AstroDate.git",
@@ -16,7 +16,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marando/AstroDate/zipball/a70c47616ffb56804e45fb816515e82b706ed012",
+                "url": "https://api.github.com/repos/marando/AstroDate/zipball/fb8e09629fdc214c58089e58cc94a95327ea446b",
                 "reference": "30122c3a7827095233c88aa03e9ada752c1390d1",
                 "shasum": ""
             },
@@ -1127,9 +1127,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "marando/astrodate": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

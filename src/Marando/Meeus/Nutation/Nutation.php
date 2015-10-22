@@ -20,6 +20,8 @@
 
 namespace Marando\Meeus\Nutation;
 
+use \Exception;
+use \InvalidArgumentException;
 use \Marando\AstroDate\AstroDate;
 use \Marando\Units\Angle;
 use \Marando\Units\Time;
@@ -92,6 +94,136 @@ class Nutation {
   // Functions
   //----------------------------------------------------------------------------
   // // // Static
+
+  /**
+   * Calculates the nutation in Right Ascension (equation of the equinoxes) for
+   * a given date
+   *
+   * @param  AstroDate $date Date to calculate
+   * @return Time            Nutation in Right Ascension as time
+   */
+  public static function inRA(AstroDate $date) {
+    // Copy time as UTC
+    $utc = $date->copy()->toUTC();
+
+    // Get the nutations and true obliquity of the date
+    $n = static::find($utc);
+    $ε = static::trueObliquity($utc);
+
+    // Calculate the nutation in right ascension as seconds of time
+    $nRA = rad2deg(($n->long->rad * cos($ε->rad)) / 15) * Time::SEC_IN_HOUR;
+    return Time::sec($nRA)->round(4);
+  }
+
+  /**
+   * Finds the mean obliquity of the ecliptic (ε0) for a given date by
+   * automatically selecting the appropriate mean obliquity algorithm based on
+   * the date value
+   *
+   * @param  AstroDate $date Date to calculate ε0 for
+   * @return Angle           Mean obliquity (ε0)
+   *
+   * @see Meeus, Jean. Astronomical Algorithms. Richmond, Virg.: Willmann-Bell,
+   *          2009. 147. Print.
+   */
+  public static function meanObliquity(AstroDate $date) {
+    try {
+      // Attempt the Laskar method
+      return static::meanObliquityLaskar($date);
+    }
+    catch (Exception $ex) {
+      // Out of range for the Laskar method, use IAU method
+      return static::meanObliquityIAU($date);
+    }
+  }
+
+  /**
+   * Finds the mean obliquity of the ecliptic (ε0) for a date by using the
+   * coefficients provided by the IAU.
+   *
+   * By using this method, the error in ε0 reaches 1" over a period of 2000
+   * years, and about 10" over a period of 4000 years from the epoch J2000.
+   *
+   * @param  AstroDate $date Date to find ε0 for
+   * @return Angle           Mean obliquity (ε0)
+   *
+   * @see Meeus, Jean. Astronomical Algorithms. Richmond, Virg.: Willmann-Bell,
+   *          2009. 147. Print.
+   */
+  public static function meanObliquityIAU(AstroDate $date) {
+    $ε0TermsIAU = [
+        Angle::dms(23, 26, 21.448)->rad,
+        Angle::dms(0, 0, -46.8150)->rad,
+        Angle::dms(0, 0, -0.00059)->rad,
+        Angle::dms(0, 0, 0.001813)->rad,
+    ];
+
+    // Time factor
+    $t = ($date->copy()->toUTC()->jd - 2451545.0) / 36525;
+
+    // Evaluate the coefficients
+    $ε0 = static::Horner($t, $ε0TermsIAU);
+    return Angle::rad($ε0);
+  }
+
+  /**
+   * Finds the mean obliquity of the ecliptic (ε0) for a given date by using the
+   * coefficients provided by Laskar.
+   *
+   * By using this method the accuracy is estimated to be at 0".01 after 1000
+   * years and a few arc seconds after 10,000 years on either side of the
+   * epoch J2000. Also, this method is only valid over a period of 10,000 years
+   * on either side of J2000 and will throe an exception if attempted on out
+   * of range dates
+   *
+   * @param  AstroDate $date Date to find ε0 for
+   * @return Angle           Mean obliquity (ε0)
+   * @throws Exception       Occurs with an out of range date, |year| > 10,000
+   *
+   * @see Meeus, Jean. Astronomical Algorithms. Richmond, Virg.: Willmann-Bell,
+   *          2009. 147. Print.
+   */
+  public static function meanObliquityLaskar(AstroDate $date) {
+    // Time factor
+    $t = ($date->copy()->toUTC()->jd - 2451545.0) / 365.25;
+
+    // Check for out of range date
+    if (abs($t) >= 1) {
+      $msg = "The Laskar method is not valid for the year {$date->year}.";
+      throw new Exception($msg);
+    }
+
+    $ε0TermsLaskar = [
+        Angle::fromDMS(23, 26, 21.448)->rad,
+        Angle::fromDMS(0, 0, -4680.93)->rad,
+        Angle::fromDMS(0, 0, -1.55)->rad,
+        Angle::fromDMS(0, 0, 1999.25)->rad,
+        Angle::fromDMS(0, 0, -51.38)->rad,
+        Angle::fromDMS(0, 0, -249.67)->rad,
+        Angle::fromDMS(0, 0, -39.05)->rad,
+        Angle::fromDMS(0, 0, 7.12)->rad,
+        Angle::fromDMS(0, 0, 27.87)->rad,
+        Angle::fromDMS(0, 0, 5.79)->rad,
+        Angle::fromDMS(0, 0, 2.45)->rad,
+    ];
+
+    $ε0 = static::Horner($t, $ε0TermsLaskar);
+    return Angle::rad($ε0);
+  }
+
+  /**
+   * Finds the true obliquity of the ecliptic (ε = ε0 + Δε) for a given date.
+   *
+   * @param  AstroDate $date Date to calculate the ε for
+   * @return Angle           True obliquity of the ecliptic (ε)
+   */
+  public static function trueObliquity(AstroDate $date) {
+    $n  = Nutation::find($date);
+    $ε0 = static::meanObliquity($date);
+
+    // ε = ε0 + Δε
+    return $ε = $ε0->add($n->obli);
+  }
 
   /**
    * Calculates the nutations in longitude (Δψ) and latitude (Δε) for a date

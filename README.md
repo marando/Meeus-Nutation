@@ -1,7 +1,21 @@
 Meeus-Nutation
 ==============
 
-#### Finding Earth's Nutations
+This package can be used to calculate values related to the Earth's nutations. The algorithms in this package are an implementation of those discussed in the book "Astronomical Algorithms" by J. Meeus.
+
+Installation 
+------------
+#### With Composer
+
+```
+$ composer require marando/units
+```
+
+
+Usage
+-----
+
+#### Earth's Nutations in Longitude (Δψ) and Obliquity (Δε) 
 Earth's nutations in longitude (Δψ) and obliquity (Δε) can be found for a date as such:
 ```php
 // Find the Earth's nutations
@@ -17,7 +31,7 @@ Output:
 -0°0'8".742
 ```
 
-#### Nutation in Right Ascension
+#### Earth's Nutation in Right Ascension
 The nutation in right ascension can be found like this:
 ```php
 // Find nutation in right ascension 
@@ -30,7 +44,7 @@ Output:
 ```
 The result is returned as a `Time` instance
 
-#### Mean Obliquity of the Ecliptic
+#### Earth's Mean Obliquity of the Ecliptic
 There are two algorithms for finding Earth's mean obliquity (ε0). 
 
 The `meanObliquityIAU()` method uses coefficients provided from the IAU, and has an error of approximately 1" over a period of 2000 years, and about 10" over a period of 4000 years from the epoch J2000.
@@ -56,7 +70,7 @@ Output:
 echo Nutation::meanObliquity($date);
 
 
-##### True Obliquity of the Ecliptic
+##### Earth's True Obliquity of the Ecliptic
 Earth's true obliquity of the ecliptic (ε) is found by adding its nutations in obliquity to its mean obliquity ε = ε0 + Δε. You can call upon the `trueObliquity()` method to do this automatically for a specified date
 ```php
 $date = AstroDate::parse('2015-Jul-10');

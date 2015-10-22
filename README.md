@@ -8,7 +8,7 @@ Installation
 #### With Composer
 
 ```
-$ composer require marando/units
+$ composer require marando/meeus-nutation
 ```
 
 

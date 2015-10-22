@@ -70,7 +70,6 @@ Output:
 Earth's true obliquity (ε) is found by adding its nutations in obliquity (Δε) to its mean obliquity ε = ε0 + Δε. You can call upon the `trueObliquity()` method to do this automatically for a specified date:
 ```php
 $date = AstroDate::parse('2015-Jul-10');
-
 echo Nutation::trueObliquity($date);
 ```
 ```

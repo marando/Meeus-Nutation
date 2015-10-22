@@ -127,14 +127,19 @@ class Nutation {
    *          2009. 147. Print.
    */
   public static function meanObliquity(AstroDate $date) {
-    try {
+    return static::meanObliquityIAU($date);
+
+    /*
+      try {
       // Attempt the Laskar method
       return static::meanObliquityLaskar($date);
-    }
-    catch (Exception $ex) {
+      }
+      catch (Exception $ex) {
       // Out of range for the Laskar method, use IAU method
       return static::meanObliquityIAU($date);
-    }
+      }
+     *
+     */
   }
 
   /**
@@ -185,7 +190,7 @@ class Nutation {
    */
   public static function meanObliquityLaskar(AstroDate $date) {
     // Time factor
-    $t = ($date->copy()->toUTC()->jd - 2451545.0) / 365.25;
+    $t = ($date->copy()->toUTC()->jd - 2451545.0) / 36525;
 
     // Check for out of range date
     if (abs($t) >= 1) {
@@ -194,17 +199,17 @@ class Nutation {
     }
 
     $ε0TermsLaskar = [
-        Angle::fromDMS(23, 26, 21.448)->rad,
-        Angle::fromDMS(0, 0, -4680.93)->rad,
-        Angle::fromDMS(0, 0, -1.55)->rad,
-        Angle::fromDMS(0, 0, 1999.25)->rad,
-        Angle::fromDMS(0, 0, -51.38)->rad,
-        Angle::fromDMS(0, 0, -249.67)->rad,
-        Angle::fromDMS(0, 0, -39.05)->rad,
-        Angle::fromDMS(0, 0, 7.12)->rad,
-        Angle::fromDMS(0, 0, 27.87)->rad,
-        Angle::fromDMS(0, 0, 5.79)->rad,
-        Angle::fromDMS(0, 0, 2.45)->rad,
+        Angle::dms(23, 26, 21.448)->rad,
+        Angle::dms(0, 0, -4680.93)->rad,
+        Angle::dms(0, 0, -1.55)->rad,
+        Angle::dms(0, 0, 1999.25)->rad,
+        Angle::dms(0, 0, -51.38)->rad,
+        Angle::dms(0, 0, -249.67)->rad,
+        Angle::dms(0, 0, -39.05)->rad,
+        Angle::dms(0, 0, 7.12)->rad,
+        Angle::dms(0, 0, 27.87)->rad,
+        Angle::dms(0, 0, 5.79)->rad,
+        Angle::dms(0, 0, 2.45)->rad,
     ];
 
     $ε0 = static::Horner($t, $ε0TermsLaskar);

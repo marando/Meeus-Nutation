@@ -4,24 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0eddd167cf8d26058fe32429c16a7513",
+    "hash": "daa8e7599fce38f26760084adc3197c4",
     "packages": [
         {
             "name": "marando/astrodate",
-            "version": "0.1-alpha",
+            "version": "0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marando/AstroDate.git",
-                "reference": "9df0487cf5fe95820745f48bc33f1172e2fbf856"
+                "reference": "4234cfc6a804bd56701bb32be37bed3a01ede83f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marando/AstroDate/zipball/9df0487cf5fe95820745f48bc33f1172e2fbf856",
-                "reference": "9df0487cf5fe95820745f48bc33f1172e2fbf856",
+                "url": "https://api.github.com/repos/marando/AstroDate/zipball/4234cfc6a804bd56701bb32be37bed3a01ede83f",
+                "reference": "4234cfc6a804bd56701bb32be37bed3a01ede83f",
                 "shasum": ""
             },
             "require": {
-                "marando/units": "^0.1.2",
+                "marando/meeus-nutation": "^0.2.5",
+                "marando/units": "^0.2.2",
                 "php": "^5.5"
             },
             "require-dev": {
@@ -44,20 +45,20 @@
                 }
             ],
             "description": "A PHP Date/Time class with useful Astronomy related functionality ",
-            "time": "2015-10-21 07:13:38"
+            "time": "2015-10-23 04:54:36"
         },
         {
             "name": "marando/units",
-            "version": "0.1.3",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marando/Units.git",
-                "reference": "89ce0e371416a0b504ed5924a6cd0106592eb2c9"
+                "reference": "3a65493c8e13d17a174949bae83d5ee7e0e0a90e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marando/Units/zipball/89ce0e371416a0b504ed5924a6cd0106592eb2c9",
-                "reference": "89ce0e371416a0b504ed5924a6cd0106592eb2c9",
+                "url": "https://api.github.com/repos/marando/Units/zipball/3a65493c8e13d17a174949bae83d5ee7e0e0a90e",
+                "reference": "3a65493c8e13d17a174949bae83d5ee7e0e0a90e",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +84,7 @@
                 }
             ],
             "description": "A PHP package consisting of classes representing units of measure",
-            "time": "2015-10-22 05:51:07"
+            "time": "2015-10-23 04:20:51"
         }
     ],
     "packages-dev": [

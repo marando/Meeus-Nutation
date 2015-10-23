@@ -2,7 +2,7 @@
   "name": "marando/meeus-nutation",
   "description": "A PHP implementation of the Nutation methods discussed in \"Astronomical Algorithms\" by J. Meeus",
   "require": {
-    "marando/units": "0.2.2",
+    "marando/units": "^0.2.3",
     "marando/astrodate": "^0.2.6"
   },
   "require-dev": {

@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c5f79e228401408cd0a7bb8f45e7bccb",
+    "hash": "b54636c96c35b92f64595efbafbb52fb",
     "packages": [
         {
             "name": "marando/astrodate",
-            "version": "0.2.6",
+            "version": "0.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marando/AstroDate.git",
-                "reference": "4234cfc6a804bd56701bb32be37bed3a01ede83f"
+                "reference": "4b3a3969c1f3218a4001302c59d11d023d089c64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marando/AstroDate/zipball/4234cfc6a804bd56701bb32be37bed3a01ede83f",
-                "reference": "4234cfc6a804bd56701bb32be37bed3a01ede83f",
+                "url": "https://api.github.com/repos/marando/AstroDate/zipball/4b3a3969c1f3218a4001302c59d11d023d089c64",
+                "reference": "4b3a3969c1f3218a4001302c59d11d023d089c64",
                 "shasum": ""
             },
             "require": {
-                "marando/meeus-nutation": "^0.2.5",
-                "marando/units": "^0.2.2",
+                "marando/meeus-nutation": "^0.2.6",
+                "marando/units": "^0.3",
                 "php": "^5.5"
             },
             "require-dev": {
@@ -45,20 +45,20 @@
                 }
             ],
             "description": "A PHP Date/Time class with useful Astronomy related functionality ",
-            "time": "2015-10-23 04:54:36"
+            "time": "2015-10-24 07:59:31"
         },
         {
             "name": "marando/units",
-            "version": "0.2.3",
+            "version": "0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marando/Units.git",
-                "reference": "d64ca60837256f0ae66eead32df0d5a2aca62d74"
+                "reference": "9ba5486eea7f7e8bd1f6c23385d70a88fffb738b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marando/Units/zipball/d64ca60837256f0ae66eead32df0d5a2aca62d74",
-                "reference": "d64ca60837256f0ae66eead32df0d5a2aca62d74",
+                "url": "https://api.github.com/repos/marando/Units/zipball/9ba5486eea7f7e8bd1f6c23385d70a88fffb738b",
+                "reference": "9ba5486eea7f7e8bd1f6c23385d70a88fffb738b",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 }
             ],
             "description": "A PHP package consisting of classes representing units of measure",
-            "time": "2015-10-23 06:00:21"
+            "time": "2015-10-24 07:37:36"
         }
     ],
     "packages-dev": [
@@ -535,16 +535,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.0.7",
+            "version": "5.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8beaaffcde39e3202917f81341e7cdfc44b275d8"
+                "reference": "97fb2503cf8caca9d768fde3cca2ab147b9e7030"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8beaaffcde39e3202917f81341e7cdfc44b275d8",
-                "reference": "8beaaffcde39e3202917f81341e7cdfc44b275d8",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/97fb2503cf8caca9d768fde3cca2ab147b9e7030",
+                "reference": "97fb2503cf8caca9d768fde3cca2ab147b9e7030",
                 "shasum": ""
             },
             "require": {
@@ -605,7 +605,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-22 09:08:03"
+            "time": "2015-10-23 06:50:01"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
